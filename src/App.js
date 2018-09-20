@@ -266,17 +266,17 @@ class App extends Component {
       <br/>
       Enter SKU or UPC. Enter zip for local search and Pickup Today info. <br/>
       *One search at a time. No multi-tab search please!* <br/>
-      Issues / comments? <a target="_blank" rel="noopener noreferrer" className="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=walseek">@walseek</a>
+      Issues / comments? <a target="_blank" rel="noopener noreferrer" className="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=meditrack">@meditrack</a>
       <br/>
       <div style={{textAlign:"left", marginLeft: "40%", display: this.state.showInstructions?"block":"none"}}>
         It's handy when you're at a store and want to know the lowest price.
         <ul>
           <li><a target="_blank" rel="noopener noreferrer" href="https://itunes.apple.com/us/app/barcode/id522354642">Install this iOS Barcode app</a></li>
           <li>Settings (Bottom right gear icon) -> Custom URL</li>
-          <li>Prefix: https://vkana.github.io/walseek?item= </li>
-          <li>Name: Walseek (or whatever)</li>
+          <li>Prefix: https://vkana.github.io/meditrack?item= </li>
+          <li>Name: meditrack (or whatever)</li>
           <li><a target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android">Similar app and setup for Android</a></li>
-          <li>Goto app and scan a barcode, select Walseek!</li>
+          <li>Goto app and scan a barcode, select meditrack!</li>
         </ul>
 
       </div>
