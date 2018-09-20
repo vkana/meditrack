@@ -3,12 +3,9 @@ import './App.css';
 const secrets = require('./secrets.json');
 //import logo from './logo.svg';
 const axios = require('axios');
-const stores = require('./stores.json');
 let cities = require('cities');
 
 const queryString = require('query-string');
-
-let allStores = stores.allStores;
 
 const randomApiDomain = () => {
   let domains = secrets.domains;
@@ -85,10 +82,10 @@ class App extends Component {
         searches = response.data;
       }
       searches = searches.map(s => {
-        let store = allStores.filter(store => store.zip === s.zip)[0];
+        s.createdDate =  new Date(s.createdDate).toLocaleString();
         delete s._id;
         delete s.__v;
-        return {...s, storeId: store?store.no:0, address: store?store.address:''};
+        return {...s};
       });
       this.setState({searches});
     })
