@@ -20,7 +20,6 @@ const randomApiDomain = () => {
 const saveSearch = (med) => {
   let url = `https://${randomApiDomain()}/meds`;
   //let url = 'http://localhost:3001/meds';
-  console.log('save search', med);
   return axios.post(url, med)
   .catch(e => console.log('save search failed'))
 }
@@ -115,10 +114,11 @@ class App extends Component {
       saveSearch(med)
         .finally(() => {
           this.setState({progress: 100});
-          console.log('progress', this.state.progress);
           this.searchHistory();
         });
     }
+    this.setState({upc:''});
+    this.upc.focus();
     if (event) {
       event.preventDefault();
     }
@@ -132,6 +132,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.upc.focus();
     //eslint-disable-next-line
     let upc = queryString.parseUrl(location.href).query.item;
     //eslint-disable-next-line
@@ -170,10 +171,9 @@ class App extends Component {
       </div><br/>
       <form onSubmit={this.handleSubmit}>
         <label>UPC: </label>
-        <input type = "text" name="upc" value={this.state.upc} onChange={this.handleChange}/>
+        <input ref={(upc) => { this.upc = upc; }} type = "text" name="upc" value={this.state.upc} onChange={this.handleChange} />
         <input disabled={this.state.progress > 0 && this.state.progress < 100} type="submit" value="Submit" />
       </form>
-
       <div id="progressbar">
       <div id="progress" style={{width:`${this.state.progress}%`}}>{this.state.statusMessage}</div>
       </div>
